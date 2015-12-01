@@ -1,0 +1,5 @@
+taiga (1.0.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- matachi <matachi@unknown>  Sun, 29 Nov 2015 18:50:41 +0100

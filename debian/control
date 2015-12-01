@@ -1,0 +1,15 @@
+Source: taiga
+Section: devel
+Priority: optional
+Maintainer: matachi <matachi@unknown>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+Homepage: https://github.com/matachi/taiga-debian-package
+Vcs-Git: git://github.com:matachi/taiga-debian-package.git
+Vcs-Browser: https://github.com/matachi/taiga-debian-package
+
+Package: taiga
+Architecture: any
+Depends: ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
