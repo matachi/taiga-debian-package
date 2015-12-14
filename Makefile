@@ -15,6 +15,8 @@ taiga:
 	mkdir -p /tmp/taiga-back
 	tar -xvzf /tmp/taiga-back.tar.gz -C /tmp/taiga-back --strip-components 1
 	cp -r /tmp/taiga-back .
+	
+	cp files/local.py taiga-back/settings/
 
 installdirs:
 	test -d $(INSTALL_DIR) || mkdir -p $(INSTALL_DIR)
