@@ -6,11 +6,13 @@ env=$dir/env
 pip=$env/bin/pip
 python=$env/bin/python
 
+USER=`logname`
+
 sudo -u postgres createuser --superuser $USER
 sudo -u postgres createdb taiga
 
-cd $back && $python manage.py migrate --noinput
-cd $back && $python manage.py loaddata initial_user
-cd $back && $python manage.py loaddata initial_project_templates
-cd $back && $python manage.py loaddata initial_role
-cd $back && $python manage.py sample_data
+cd $back && sudo -u $USER $python manage.py migrate --noinput
+cd $back && sudo -u $USER $python manage.py loaddata initial_user
+cd $back && sudo -u $USER $python manage.py loaddata initial_project_templates
+cd $back && sudo -u $USER $python manage.py loaddata initial_role
+cd $back && sudo -u $USER $python manage.py sample_data
