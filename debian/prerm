@@ -1,0 +1,7 @@
+#!/bin/sh
+
+dir=/var/www/taiga
+back=$dir/taiga-back
+env=$dir/env
+
+rm -rf $env
