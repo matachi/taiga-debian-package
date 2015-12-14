@@ -4,4 +4,6 @@ dir=/var/www/taiga
 back=$dir/taiga-back
 env=$dir/env
 
-rm -rf $env
+rm -rf $back/attachments
+rm -rf $back/media
+find $back | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
