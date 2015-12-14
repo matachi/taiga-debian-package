@@ -6,7 +6,7 @@ env=$dir/env
 pip=$env/bin/pip
 python=$env/bin/python
 
-sudo -u postgres createuser --superuser taiga
+sudo -u postgres createuser --superuser $USER
 sudo -u postgres createdb taiga
 
 cd $back && $python manage.py migrate --noinput
