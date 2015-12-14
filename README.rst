@@ -2,6 +2,11 @@
 Taiga Debian package
 ====================
 
+Install dependencies::
+
+    $ sudo apt-get update
+    $ sudo apt-get install build-essential fakeroot devscripts debhelper
+
 How to build package::
 
     $ dpkg-buildpackage -b
