@@ -9,11 +9,7 @@ python=$env/bin/python
 sudo -u postgres createuser --superuser taiga
 sudo -u postgres createdb taiga
 
-virtualenv -p /usr/bin/python3.4 $env
-$pip install -r $back/requirements.txt
 cd $back && $python manage.py migrate --noinput
-cd $back && $python manage.py compilemessages
-cd $back && $python manage.py collectstatic --noinput
 cd $back && $python manage.py loaddata initial_user
 cd $back && $python manage.py loaddata initial_project_templates
 cd $back && $python manage.py loaddata initial_role

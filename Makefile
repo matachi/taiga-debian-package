@@ -16,6 +16,11 @@ taiga:
 	tar -xvzf /tmp/taiga-back.tar.gz -C /tmp/taiga-back --strip-components 1
 	cp -r /tmp/taiga-back .
 	
+	virtualenv -p /usr/bin/python3.4 env
+	env/bin/pip install -r taiga-back/requirements.txt
+	cd taiga-back && ../env/bin/python manage.py compilemessages
+	cd taiga-back && ../env/bin/python manage.py collectstatic --noinput
+	
 	cp files/local.py taiga-back/settings/
 
 installdirs:
@@ -24,6 +29,7 @@ installdirs:
 install: installdirs
 	cp -r taiga-front $(INSTALL_DIR)
 	cp -r taiga-back $(INSTALL_DIR)
+	cp -r env $(INSTALL_DIR)
 
 clean:
 	rm -rf taiga-front
@@ -33,4 +39,6 @@ clean:
 	rm -rf taiga-back
 	rm -f /tmp/taiga-back.tar.gz
 	rm -rf /tmp/taiga-back
+	
+	rm -rf env
 
