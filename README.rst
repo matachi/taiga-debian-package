@@ -7,11 +7,15 @@ Install dependencies::
     $ sudo apt-get update
     $ sudo apt-get install build-essential fakeroot devscripts debhelper
 
-How to build package::
+Check for missing build dependencies::
+
+    $ dpkg-checkbuilddeps
+
+Build the package::
 
     $ dpkg-buildpackage -b
 
-How to install::
+Install::
 
     $ sudo dpkg -i ../taiga_1.0.0-1_amd64.deb
 
