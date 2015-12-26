@@ -1,6 +1,7 @@
 PREFIX = /var/www/taiga/
 INSTALL_DIR = $(DESTDIR)$(PREFIX)
 NGINX_DIR = $(DESTDIR)/etc/nginx
+INIT_DIR = $(DESTDIR)/etc/init
 
 all: taiga
 
@@ -10,6 +11,7 @@ taiga:
 	mkdir -p /tmp/taiga-front
 	tar -xvzf /tmp/taiga-front.tar.gz -C /tmp/taiga-front --strip-components 1
 	cp -r /tmp/taiga-front .
+	cp files/conf.json taiga-front/dist/js
 	
 	test -f /tmp/taiga-back.tar.gz || wget -O /tmp/taiga-back.tar.gz \
 		https://github.com/taigaio/taiga-back/archive/stable.tar.gz
@@ -35,6 +37,8 @@ install: installdirs
 	cp files/taiga.conf $(NGINX_DIR)/sites-available/taiga
 	mkdir -p $(NGINX_DIR)/sites-enabled
 	cp files/taiga.conf $(NGINX_DIR)/sites-enabled/taiga
+	cp files/circus.conf $(INIT_DIR)
+	cp files/circus.ini $(INSTALL_DIR)
 
 clean:
 	rm -rf taiga-front

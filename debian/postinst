@@ -15,5 +15,8 @@ cd $back && $python manage.py loaddata initial_project_templates
 cd $back && $python manage.py loaddata initial_role
 cd $back && $python manage.py sample_data
 
+pip2 install circus
+service circus restart
+
 rm -rf /etc/nginx/sites-enabled/default
 service nginx restart
