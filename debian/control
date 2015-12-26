@@ -17,7 +17,6 @@ Architecture: any
 Depends: ${misc:Depends},
 	nginx-full,
 	postgresql-9.3, postgresql-contrib-9.3, postgresql-doc-9.3,
-	python-pip,
-	python3
+	python-dev, python-pip, python3
 Description: <insert up to 60 chars description>
  <insert long description, indented with spaces>
