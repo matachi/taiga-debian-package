@@ -2,6 +2,7 @@ PREFIX = /var/www/taiga/
 INSTALL_DIR = $(DESTDIR)$(PREFIX)
 NGINX_DIR = $(DESTDIR)/etc/nginx
 INIT_DIR = $(DESTDIR)/etc/init
+LOG_DIR = $(DESTDIR)/var/log/taiga
 
 all: taiga
 
@@ -30,6 +31,7 @@ installdirs:
 	test -d $(INSTALL_DIR) || mkdir -p $(INSTALL_DIR)
 	test -d $(NGINX_DIR) || mkdir -p $(NGINX_DIR)
 	test -d $(INIT_DIR) || mkdir -p $(INIT_DIR)
+	test -d $(LOG_DIR) || mkdir -p $(LOG_DIR)
 
 install: installdirs
 	cp -r taiga-front $(INSTALL_DIR)
