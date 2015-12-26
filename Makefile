@@ -28,6 +28,8 @@ taiga:
 
 installdirs:
 	test -d $(INSTALL_DIR) || mkdir -p $(INSTALL_DIR)
+	test -d $(NGINX_DIR) || mkdir -p $(NGINX_DIR)
+	test -d $(INIT_DIR) || mkdir -p $(INIT_DIR)
 
 install: installdirs
 	cp -r taiga-front $(INSTALL_DIR)
