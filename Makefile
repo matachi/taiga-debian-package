@@ -1,5 +1,6 @@
 PREFIX = /var/www/taiga/
 INSTALL_DIR = $(DESTDIR)$(PREFIX)
+NGINX_DIR = $(DESTDIR)/etc/nginx
 
 all: taiga
 
@@ -30,6 +31,10 @@ install: installdirs
 	cp -r taiga-front $(INSTALL_DIR)
 	cp -r taiga-back $(INSTALL_DIR)
 	cp -r env $(INSTALL_DIR)
+	mkdir -p $(NGINX_DIR)/sites-available
+	cp files/taiga.conf $(NGINX_DIR)/sites-available/taiga
+	mkdir -p $(NGINX_DIR)/sites-enabled
+	cp files/taiga.conf $(NGINX_DIR)/sites-enabled/taiga
 
 clean:
 	rm -rf taiga-front
