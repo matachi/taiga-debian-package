@@ -22,6 +22,7 @@ taiga:
 	
 	virtualenv -p /usr/bin/python3.4 env
 	env/bin/pip install -r taiga-back/requirements.txt
+	virtualenv --relocatable env
 	cd taiga-back && ../env/bin/python manage.py compilemessages
 	cd taiga-back && ../env/bin/python manage.py collectstatic --noinput
 	
